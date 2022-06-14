@@ -11,22 +11,19 @@
   font-weight: 600;
 }
 
-.nav_container {
-  width: calc(100% - 12em);
-  display: flex;
-  justify-content: center;
-  align-items: flex-end;
+.menu {
+  display: none;
 }
 
-.nav {
-  display: flex;
-}
+@media (min-width: 1024px) {
+  .hamburger_menu {
+    display: none;
+  }
 
-.link {
-  color: lightgrey;
-  margin: 0 0.5em;
-}
-
-.link:hover {
-  color: #53bf9d;
+  .menu {
+    display: flex;
+    width: calc(100% - 12em);
+    justify-content: center;
+    align-items: flex-end;
+  }
 }

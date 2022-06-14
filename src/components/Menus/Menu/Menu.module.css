@@ -1,0 +1,12 @@
+.nav {
+  display: flex;
+}
+
+.link {
+  color: lightgrey;
+  margin: 0 0.5em;
+}
+
+.link:hover {
+  color: #53bf9d;
+}

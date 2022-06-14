@@ -1,5 +1,9 @@
 import { Link } from "react-router-dom";
 
+// Components
+import HamburgerMenu from "../Menus/HamburgerMenu/HamburgerMenu";
+import Menu from "../Menus/Menu/Menu";
+
 // Styles
 import styles from "./Header.module.css";
 
@@ -14,18 +18,11 @@ export default function Header() {
       >
         Nicolas B.
       </a>
-      <div className={styles.nav_container}>
-        <nav className={styles.nav}>
-          <Link to="/" className={styles.link}>
-            Home
-          </Link>
-          <Link to="/about" className={styles.link}>
-            About
-          </Link>
-          <Link to="/contact" className={styles.link}>
-            Contact
-          </Link>
-        </nav>
+      <div className={styles.menu}>
+        <Menu />
+      </div>
+      <div className={styles.hamburger_menu}>
+        <HamburgerMenu />
       </div>
     </header>
   );
