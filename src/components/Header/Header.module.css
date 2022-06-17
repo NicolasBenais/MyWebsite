@@ -1,8 +1,9 @@
 .header {
   border: solid 1px white;
-  /* height: 4em; */
   padding: 1em;
   display: flex;
+  position: fixed;
+  width: 100vw;
 }
 
 .logo {

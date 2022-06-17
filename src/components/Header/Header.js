@@ -21,9 +21,9 @@ export default function Header() {
       <div className={styles.menu}>
         <Menu />
       </div>
-      <div className={styles.hamburger_menu}>
+      {/* <div className={styles.hamburger_menu}>
         <HamburgerMenu />
-      </div>
+      </div> */}
     </header>
   );
 }

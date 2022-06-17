@@ -1,0 +1,71 @@
+.backoffice_main {
+  color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.h2 {
+  font-size: 2em;
+  font-weight: 600;
+}
+
+.input,
+.tag_button,
+.submite_button,
+.add_picture_button {
+  color: white;
+  font-size: 1em;
+  margin-top: 1.5em;
+  padding: 0.3em;
+  border-radius: 0.5em;
+  border: solid 1px lightgrey;
+}
+
+.add_picture_button {
+  padding: 0.5em;
+  cursor: pointer;
+}
+
+.add_picture_button:active {
+  transform: scale(0.98);
+}
+
+.tag_button {
+  margin-left: 0.5em;
+}
+
+.input {
+  outline: none;
+  border-top: none;
+  border-right: none;
+}
+
+.add_picture_button > span {
+  margin-left: 0.5em;
+}
+
+.add_picture_input {
+  display: none;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+}
+
+.tag {
+  margin-top: 0.5em;
+}
+
+.tag > button {
+  color: white;
+  border: none;
+}
+
+.message {
+  margin-top: 1em;
+  text-align: center;
+}

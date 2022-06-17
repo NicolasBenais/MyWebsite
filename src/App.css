@@ -2,8 +2,18 @@
   background-color: black;
 }
 
-body {
+body,
+input,
+button {
   font-family: "Roboto Slab", serif;
+}
+
+button {
+  cursor: pointer;
+}
+
+button:active {
+  transform: scale(0.98);
 }
 
 a {
