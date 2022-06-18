@@ -52,12 +52,14 @@ export default function Publication({ isTokenPresent }) {
               })}
             </div>
           </div>
+          <div className={styles.botton_container}>
+            <Link to="/backoffice/publish">
+              <button className={styles.button} type="button">
+                Add an other picture
+              </button>
+            </Link>
+          </div>
         </div>
-        <Link to="/backoffice/publish">
-          <button className={styles.button} type="button">
-            Add an other picture
-          </button>
-        </Link>
       </main>
     )
   );
