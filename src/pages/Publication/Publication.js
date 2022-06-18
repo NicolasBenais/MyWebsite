@@ -52,7 +52,7 @@ export default function Publication({ isTokenPresent }) {
               })}
             </div>
           </div>
-          <div className={styles.botton_container}>
+          <div className={styles.bottom_container}>
             <Link to="/backoffice/publish">
               <button className={styles.button} type="button">
                 Add an other picture

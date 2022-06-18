@@ -32,9 +32,9 @@ export default function Publish({ isTokenPresent }) {
       const formData = new FormData();
       formData.append("date", date);
       formData.append("location", location);
-      formData.append("film", film);
       formData.append("camera", camera);
       formData.append("lens", lens);
+      formData.append("film", film);
       formData.append("tags", tags);
       formData.append("picture", picture);
 
@@ -91,14 +91,6 @@ export default function Publish({ isTokenPresent }) {
 
         <input
           className={styles.input}
-          placeholder="Film: Kodak Portra 400"
-          type="text"
-          value={film}
-          onChange={(event) => setFilm(event.target.value)}
-        />
-
-        <input
-          className={styles.input}
           placeholder="Camera: Canon AE-1"
           type="text"
           value={camera}
@@ -112,6 +104,15 @@ export default function Publish({ isTokenPresent }) {
           value={lens}
           onChange={(event) => setLens(event.target.value)}
         />
+
+        <input
+          className={styles.input}
+          placeholder="Film: Kodak Portra 400"
+          type="text"
+          value={film}
+          onChange={(event) => setFilm(event.target.value)}
+        />
+
         <div className={styles.div_tag}>
           <input
             className={styles.input}
@@ -139,7 +140,6 @@ export default function Publish({ isTokenPresent }) {
             return (
               <div key={index} className={styles.tag}>
                 <button
-                  className={styles.trash_button}
                   type="button"
                   onClick={() => {
                     const newTags = [...tags];
@@ -147,7 +147,7 @@ export default function Publish({ isTokenPresent }) {
                     setTags(newTags);
                   }}
                 >
-                  <i className="fa-solid fa-trash-can"></i>
+                  <i class="fa-solid fa-circle-xmark"></i>
                 </button>
                 {item}
               </div>
