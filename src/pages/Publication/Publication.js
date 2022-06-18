@@ -41,7 +41,7 @@ export default function Publication({ isTokenPresent }) {
               <div>{data.date}</div>
             </div>
 
-            <div className={styles.camera}>
+            <div className={styles.camera_informations}>
               <div>{data.camera}</div>
               <div>{data.lens}</div>
             </div>
