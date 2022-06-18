@@ -8,6 +8,10 @@
   width: 375px;
 }
 
+.main::-webkit-scrollbar {
+  display: none;
+}
+
 .right-part::-webkit-scrollbar {
   display: none;
 }

@@ -8,10 +8,6 @@
   overflow-y: hidden;
 }
 
-.right-part::-webkit-scrollbar {
-  display: none;
-}
-
 .h2 {
   font-size: 2em;
   font-weight: 600;
