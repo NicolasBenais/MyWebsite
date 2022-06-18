@@ -5,6 +5,7 @@
   justify-content: center;
   align-items: center;
   padding-top: 6em;
+  overflow-y: hidden;
 }
 
 .right-part::-webkit-scrollbar {
