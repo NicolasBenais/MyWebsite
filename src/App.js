@@ -1,5 +1,7 @@
 import "./App.css";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { useState } from "react";
+import Cookies from "js-cookie";
 
 // Pages
 import Home from "./pages/Home/Home";
@@ -13,16 +15,41 @@ import Publication from "./pages/Publication/Publication";
 import Header from "./components/Header/Header";
 
 function App() {
+  const [isTokenPresent, setIsTokenPresent] = useState(
+    Cookies.get("token") ? true : false
+  );
+
   return (
     <Router>
       <Header />
       <Routes>
+        {/* -------- User -------- */}
         <Route path="/" element={<Home />} />
+
         <Route path="/about" element={<About />} />
+
         <Route path="/contact" element={<Contact />} />
-        <Route path="/backoffice" element={<Backoffice />} />
-        <Route path="/backoffice/publish" element={<Publish />} />
-        <Route path="/backoffice/publication" element={<Publication />} />
+
+        {/* -------- Backoffice -------- */}
+        <Route
+          path="/backoffice"
+          element={
+            <Backoffice
+              isTokenPresent={isTokenPresent}
+              setIsTokenPresent={setIsTokenPresent}
+            />
+          }
+        />
+
+        <Route
+          path="/backoffice/publish"
+          element={<Publish isTokenPresent={isTokenPresent} />}
+        />
+
+        <Route
+          path="/backoffice/publication"
+          element={<Publication isTokenPresent={isTokenPresent} />}
+        />
       </Routes>
     </Router>
   );

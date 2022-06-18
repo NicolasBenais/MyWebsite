@@ -1,11 +1,11 @@
 import { useState } from "react";
 import axios from "axios";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Navigate } from "react-router-dom";
 
 // Styles
 import styles from "./Publish.module.css";
 
-export default function Publish() {
+export default function Publish({ isTokenPresent }) {
   const navigate = useNavigate();
 
   const [publishment, setPublishment] = useState(false);
@@ -54,12 +54,16 @@ export default function Publish() {
     }
   };
 
-  return (
-    <main className={styles.backoffice_main}>
+  return !isTokenPresent ? (
+    <Navigate to="/backoffice" />
+  ) : (
+    <main className={styles.main}>
       <h2 className={styles.h2}>Add picture in data</h2>
       <form className={styles.form} onSubmit={handlePublish}>
         <label className={styles.add_picture_button} htmlFor="file_input">
-          <i className="fa-solid fa-download"></i>
+          <i
+            className={picture ? "fa-solid fa-check" : "fa-solid fa-download"}
+          ></i>
           <span>{picture ? "Picture added" : "Add picture"}</span>
         </label>
         <input
@@ -71,7 +75,7 @@ export default function Publish() {
 
         <input
           className={styles.input}
-          placeholder="Date"
+          placeholder="Date: May 2022"
           type="text"
           value={date}
           onChange={(event) => setDate(event.target.value)}
@@ -79,7 +83,7 @@ export default function Publish() {
 
         <input
           className={styles.input}
-          placeholder="Location"
+          placeholder="Location: Bruxelles"
           type="text"
           value={location}
           onChange={(event) => setLocation(event.target.value)}
@@ -87,7 +91,7 @@ export default function Publish() {
 
         <input
           className={styles.input}
-          placeholder="Film"
+          placeholder="Film: Kodak Portra 400"
           type="text"
           value={film}
           onChange={(event) => setFilm(event.target.value)}
@@ -95,7 +99,7 @@ export default function Publish() {
 
         <input
           className={styles.input}
-          placeholder="Camera"
+          placeholder="Camera: Canon AE-1"
           type="text"
           value={camera}
           onChange={(event) => setCamera(event.target.value)}
@@ -103,7 +107,7 @@ export default function Publish() {
 
         <input
           className={styles.input}
-          placeholder="Lens"
+          placeholder="Lens: Canon FD 50mm f1.8"
           type="text"
           value={lens}
           onChange={(event) => setLens(event.target.value)}
@@ -111,7 +115,7 @@ export default function Publish() {
         <div className={styles.div_tag}>
           <input
             className={styles.input}
-            placeholder="Tag"
+            placeholder="Tags: car"
             type="text"
             value={tag}
             onChange={(event) => setTag(event.target.value)}
