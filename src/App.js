@@ -47,7 +47,7 @@ function App() {
         />
 
         <Route
-          path="/backoffice/publication"
+          path="/backoffice/publication/:id"
           element={<Publication isTokenPresent={isTokenPresent} />}
         />
       </Routes>

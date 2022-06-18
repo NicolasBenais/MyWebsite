@@ -43,7 +43,7 @@ export default function Publish({ isTokenPresent }) {
           "https://nbns-my-website.herokuapp.com/publish",
           formData
         );
-        console.log(response);
+
         setData(response.data);
         setPublishment(false);
       } catch (error) {
@@ -83,7 +83,7 @@ export default function Publish({ isTokenPresent }) {
 
         <input
           className={styles.input}
-          placeholder="Location: Bruxelles"
+          placeholder="Location: Brussels"
           type="text"
           value={location}
           onChange={(event) => setLocation(event.target.value)}
