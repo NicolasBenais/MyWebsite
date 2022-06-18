@@ -1,7 +1,7 @@
-import { Link } from "react-router-dom";
+// import { Link } from "react-router-dom";
 
 // Components
-import HamburgerMenu from "../Menus/HamburgerMenu/HamburgerMenu";
+// import HamburgerMenu from "../Menus/HamburgerMenu/HamburgerMenu";
 import Menu from "../Menus/Menu/Menu";
 
 // Styles
