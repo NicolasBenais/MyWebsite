@@ -3,10 +3,23 @@
 }
 
 .link {
+  font-size: 1.25em;
   color: lightgrey;
   margin: 0 0.5em;
+  overflow: hidden;
+  background: linear-gradient(to right, #53bf9d, #53bf9d 50%, white 50%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-size: 200% 100%;
+  background-position: 100%;
+  transition: background-position 275ms ease;
 }
 
 .link:hover {
-  color: #53bf9d;
+  background-position: 0 100%;
+}
+
+.link:active {
+  transform: scale(0.98);
 }
