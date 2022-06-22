@@ -9,31 +9,31 @@ export default function Publish({ isTokenPresent }) {
   const navigate = useNavigate();
 
   const [publishment, setPublishment] = useState(false);
+  const [error, setError] = useState("");
 
-  const [data, setData] = useState();
-
+  const [picture, setPicture] = useState(null);
   const [date, setDate] = useState("");
   const [location, setLocation] = useState("");
-  const [film, setFilm] = useState("");
   const [camera, setCamera] = useState("");
   const [lens, setLens] = useState("");
-  const [picture, setPicture] = useState(null);
-  const [error, setError] = useState("");
+  const [film, setFilm] = useState("");
 
   const handlePublish = async (event) => {
     event.preventDefault();
 
-    if (date && location && film && camera && lens && picture) {
-      setError(false);
+    if (picture && date && location && camera && lens && film) {
+      if (Error) {
+        setError(false);
+      }
       setPublishment(true);
 
       const formData = new FormData();
+      formData.append("picture", picture);
       formData.append("date", date);
       formData.append("location", location);
       formData.append("camera", camera);
       formData.append("lens", lens);
       formData.append("film", film);
-      formData.append("picture", picture);
 
       try {
         const response = await axios.post(
@@ -41,10 +41,10 @@ export default function Publish({ isTokenPresent }) {
           formData
         );
 
-        setData(response.data);
-        setPublishment(false);
+        navigate(`/backoffice/publication/${response.data.id}`);
       } catch (error) {
         console.log(error.message);
+        setPublishment(false);
       }
     } else {
       setError("Please fill all fields");
@@ -55,8 +55,9 @@ export default function Publish({ isTokenPresent }) {
     <Navigate to="/backoffice" />
   ) : (
     <main className={styles.main}>
-      <h2 className={styles.h2}>Add picture in data</h2>
       <form className={styles.form} onSubmit={handlePublish}>
+        <h2 className={styles.h2}>Add picture in data</h2>
+
         <label className={styles.add_picture_button} htmlFor="file_input">
           <i
             className={picture ? "fa-solid fa-check" : "fa-solid fa-download"}
@@ -110,17 +111,17 @@ export default function Publish({ isTokenPresent }) {
           onChange={(event) => setFilm(event.target.value)}
         />
 
-        <button className={styles.submite_button} type="submite">
-          Save
-        </button>
+        {!publishment ? (
+          <button className={styles.submite_button} type="submite">
+            Save
+          </button>
+        ) : (
+          <button className={styles.submite_button} disabled={true}>
+            Loading...
+          </button>
+        )}
 
         {error && <div className={styles.message}>{error}</div>}
-
-        {publishment ? (
-          <div className={styles.message}>Loading...</div>
-        ) : (
-          data && navigate(`/backoffice/publication/${data.id}`)
-        )}
       </form>
     </main>
   );

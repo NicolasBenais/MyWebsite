@@ -48,11 +48,6 @@ export default function Publication({ isTokenPresent }) {
               <div>{data.lens}</div>
             </div>
             <div className={styles.film}>{data.film}</div>
-            <div className={styles.tags}>
-              {data.tags.map((tag, index) => {
-                return <div key={index}>{tag}</div>;
-              })}
-            </div>
           </div>
           <div className={styles.bottom_container}>
             <Link to="/backoffice/publish">
