@@ -17,15 +17,13 @@ export default function Publish({ isTokenPresent }) {
   const [film, setFilm] = useState("");
   const [camera, setCamera] = useState("");
   const [lens, setLens] = useState("");
-  const [tag, setTag] = useState("");
   const [picture, setPicture] = useState(null);
-  const [tags, setTags] = useState([]);
   const [error, setError] = useState("");
 
   const handlePublish = async (event) => {
     event.preventDefault();
 
-    if (date && location && film && camera && lens && tags && picture) {
+    if (date && location && film && camera && lens && picture) {
       setError(false);
       setPublishment(true);
 
@@ -35,7 +33,6 @@ export default function Publish({ isTokenPresent }) {
       formData.append("camera", camera);
       formData.append("lens", lens);
       formData.append("film", film);
-      formData.append("tags", tags);
       formData.append("picture", picture);
 
       try {
@@ -83,7 +80,7 @@ export default function Publish({ isTokenPresent }) {
 
         <input
           className={styles.input}
-          placeholder="Location: Brussels"
+          placeholder="Location: Brussels, Belgium"
           type="text"
           value={location}
           onChange={(event) => setLocation(event.target.value)}
@@ -99,7 +96,7 @@ export default function Publish({ isTokenPresent }) {
 
         <input
           className={styles.input}
-          placeholder="Lens: Canon FD 50mm f1.8"
+          placeholder="Lens: Canon FD 50mm f/1.8"
           type="text"
           value={lens}
           onChange={(event) => setLens(event.target.value)}
@@ -112,48 +109,6 @@ export default function Publish({ isTokenPresent }) {
           value={film}
           onChange={(event) => setFilm(event.target.value)}
         />
-
-        <div className={styles.div_tag}>
-          <input
-            className={styles.input}
-            placeholder="Tags: car"
-            type="text"
-            value={tag}
-            onChange={(event) => setTag(event.target.value)}
-          />
-          <button
-            className={styles.tag_button}
-            type="button"
-            onClick={() => {
-              if (tag) {
-                const newTags = [...tags];
-                newTags.push(tag);
-                setTags(newTags);
-                setTag("");
-              }
-            }}
-          >
-            Add tag
-          </button>
-
-          {tags.map((item, index) => {
-            return (
-              <div key={index} className={styles.tag}>
-                <button
-                  type="button"
-                  onClick={() => {
-                    const newTags = [...tags];
-                    newTags.splice(index, 1);
-                    setTags(newTags);
-                  }}
-                >
-                  <i class="fa-solid fa-circle-xmark"></i>
-                </button>
-                {item}
-              </div>
-            );
-          })}
-        </div>
 
         <button className={styles.submite_button} type="submite">
           Save

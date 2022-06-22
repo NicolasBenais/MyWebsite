@@ -1,6 +1,6 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
-import { useParams, Link } from "react-router-dom";
+import { useParams, Link, Navigate } from "react-router-dom";
 
 // Styles
 import styles from "./Publication.module.css";
@@ -26,7 +26,9 @@ export default function Publication({ isTokenPresent }) {
     fetchData();
   }, [id]);
 
-  return (
+  return !isTokenPresent ? (
+    <Navigate to="/backoffice" />
+  ) : (
     !isLoading && (
       <main className={styles.main}>
         <div className={styles.container}>

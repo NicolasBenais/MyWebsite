@@ -6,6 +6,7 @@
   align-items: center;
   padding-top: 66px;
   width: 375px;
+  margin: 0 auto;
 }
 
 .right-part::-webkit-scrollbar {
