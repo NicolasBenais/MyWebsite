@@ -15,7 +15,7 @@ export default function Home() {
     const fetchData = async () => {
       try {
         const response = await axios.get(
-          `https://nbns-my-website.herokuapp.com/pictures`
+          "https://nbns-my-website.herokuapp.com/pictures"
         );
         setData(response.data);
         setIsLoading(false);

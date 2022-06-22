@@ -15,4 +15,18 @@
   display: flex;
   justify-content: space-between;
   padding: 0 0.5em;
+  width: 100%;
+}
+
+@media (min-width: 767px) {
+  .main {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 0 1em;
+    justify-content: space-between;
+  }
+
+  .container {
+    width: calc(100% / 3 - 8px);
+  }
 }
