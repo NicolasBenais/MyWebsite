@@ -1,0 +1,18 @@
+.main {
+  padding-top: 64px;
+}
+
+.container:not(:last-child) {
+  margin-bottom: 1em;
+}
+
+.image {
+  width: 100%;
+}
+
+.picture_informations {
+  color: grey;
+  display: flex;
+  justify-content: space-between;
+  padding: 0 0.5em;
+}

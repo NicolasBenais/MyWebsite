@@ -10,22 +10,6 @@
   color: white;
   font-size: 2em;
   font-weight: 600;
-  overflow: hidden;
-  background: linear-gradient(to right, #53bf9d, #53bf9d 50%, white 50%);
-  background-clip: text;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-size: 200% 100%;
-  background-position: 100%;
-  transition: background-position 275ms ease;
-}
-
-.logo:hover {
-  background-position: 0 100%;
-}
-
-.logo:active {
-  transform: scale(0.98);
 }
 
 .menu,
@@ -34,6 +18,25 @@
 }
 
 @media (min-width: 1024px) {
+  .logo {
+    overflow: hidden;
+    background: linear-gradient(to right, #53bf9d, #53bf9d 50%, white 50%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-size: 200% 100%;
+    background-position: 100%;
+    transition: background-position 275ms ease;
+  }
+
+  .logo:hover {
+    background-position: 0 100%;
+  }
+
+  .logo:active {
+    transform: scale(0.98);
+  }
+
   .hamburger_menu {
     display: none;
   }
