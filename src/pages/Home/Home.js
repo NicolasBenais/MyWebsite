@@ -9,6 +9,8 @@ export default function Home() {
 
   const [data, setData] = useState([]);
 
+  const [activeItem, setActiveItem] = useState(null);
+
   useEffect(() => {
     setIsLoading(true);
     const fetchData = async () => {
@@ -28,29 +30,38 @@ export default function Home() {
   return (
     !isLoading && (
       <main className={styles.main}>
-        {data.map((item, index) => {
+        {data.map((item) => {
           return (
-            <div key={index} className={styles.container}>
+            <div
+              onClick={() => {
+                if (activeItem === item._id) {
+                  setActiveItem(null);
+                } else {
+                  setActiveItem(item._id);
+                }
+              }}
+              key={item._id}
+              className={styles.container}
+            >
               <img
                 className={styles.image}
                 src={item.image.secure_url}
                 alt=""
               />
-              <div className={styles.img_overlay}>
-                <div className={styles.picture_informations_overlay}>
-                  <div className={styles.camera_informations_overlay}>
-                    <div>{item.camera}</div>
-                    <div>{item.lens}</div>
-                    <div>{item.film}</div>
-                  </div>
-                  <div>{item.location}</div>
-                  <div>{item.date}</div>
+
+              {/* Overlay on laptop design */}
+              <div className={styles.picture_informations_laptop_overlay}>
+                <p>{item.location}</p>
+                <p>{item.date}</p>
+              </div>
+
+              {/* Overlay on mobile design */}
+              {activeItem === item._id && (
+                <div className={styles.picture_informations_mobile_overlay}>
+                  <p>{item.location}</p>
+                  <p>{item.date}</p>
                 </div>
-              </div>
-              <div className={styles.picture_informations}>
-                <span>{item.location}</span>
-                <span>{item.date}</span>
-              </div>
+              )}
             </div>
           );
         })}
