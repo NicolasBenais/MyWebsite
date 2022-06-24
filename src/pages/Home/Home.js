@@ -36,7 +36,17 @@ export default function Home() {
                 src={item.image.secure_url}
                 alt=""
               />
-
+              <div className={styles.img_overlay}>
+                <div className={styles.picture_informations_overlay}>
+                  <div className={styles.camera_informations_overlay}>
+                    <div>{item.camera}</div>
+                    <div>{item.lens}</div>
+                    <div>{item.film}</div>
+                  </div>
+                  <div>{item.location}</div>
+                  <div>{item.date}</div>
+                </div>
+              </div>
               <div className={styles.picture_informations}>
                 <span>{item.location}</span>
                 <span>{item.date}</span>
