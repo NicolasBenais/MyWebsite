@@ -1,5 +1,5 @@
 .main {
-  padding-top: 64px;
+  padding-top: 4em;
 }
 
 .container:not(:last-child) {
@@ -18,15 +18,34 @@
   width: 100%;
 }
 
-@media (min-width: 767px) {
+@media (min-width: 768px) {
+  /* Tablet design */
+
   .main {
     display: flex;
     flex-wrap: wrap;
-    padding: 0 1em;
+    padding: 4em 1em 0 1em;
     justify-content: space-between;
   }
 
   .container {
-    width: calc(100% / 3 - 8px);
+    width: calc(100% / 2 - 0.5em);
+  }
+
+  .image {
+    height: 40vh;
+    object-fit: cover;
+  }
+}
+
+@media (min-width: 1024px) {
+  /* Laptop design */
+
+  .container {
+    width: calc(100% / 3 - 0.5em);
+  }
+
+  .picture_informations {
+    display: none;
   }
 }

@@ -1,5 +1,4 @@
 import { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
 import axios from "axios";
 
 // Styles
@@ -32,13 +31,12 @@ export default function Home() {
         {data.map((item, index) => {
           return (
             <div key={index} className={styles.container}>
-              <Link className={styles.link} to="/picture" state={item}>
-                <img
-                  className={styles.image}
-                  src={item.image.secure_url}
-                  alt=""
-                />
-              </Link>
+              <img
+                className={styles.image}
+                src={item.image.secure_url}
+                alt=""
+              />
+
               <div className={styles.picture_informations}>
                 <span>{item.location}</span>
                 <span>{item.date}</span>
