@@ -11,26 +11,43 @@ export default function Home() {
 
   const [activeItem, setActiveItem] = useState(null);
 
+  let limit = 12;
+
+  const fetchData = async () => {
+    try {
+      const response = await axios.get(
+        `https://nbns-my-website.herokuapp.com/pictures?limit=${limit}`
+      );
+      setData(response.data);
+      setIsLoading(false);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  const handleScroll = (event) => {
+    if (
+      window.innerHeight + event.target.documentElement.scrollTop + 1 >=
+      event.target.documentElement.scrollHeight
+    ) {
+      limit += 12;
+      fetchData();
+    }
+  };
+
   useEffect(() => {
     setIsLoading(true);
-    const fetchData = async () => {
-      try {
-        const response = await axios.get(
-          "https://nbns-my-website.herokuapp.com/pictures"
-        );
-        setData(response.data);
-        setIsLoading(false);
-      } catch (error) {
-        console.log(error);
-      }
-    };
+
     fetchData();
+
+    window.addEventListener("scroll", handleScroll);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (
     !isLoading && (
       <main className={styles.main}>
-        {data.map((item) => {
+        {data.map((item, index) => {
           return (
             <div
               onClick={() => {
