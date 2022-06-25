@@ -44,6 +44,7 @@ export default function Backoffice({ isTokenPresent, setIsTokenPresent }) {
               setEmail(event.target.value);
             }}
           />
+
           <input
             className={styles.form_input}
             type="password"
@@ -52,9 +53,11 @@ export default function Backoffice({ isTokenPresent, setIsTokenPresent }) {
               setPassword(event.target.value);
             }}
           />
+
           <button className={styles.form_button} type="submit">
             Login
           </button>
+
           {errorMessage && (
             <div className={styles.errorMessage}>{errorMessage}</div>
           )}

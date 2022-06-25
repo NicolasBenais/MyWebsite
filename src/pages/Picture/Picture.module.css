@@ -1,0 +1,24 @@
+.main {
+  padding-top: 4em;
+  color: white;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.container {
+  display: flex;
+}
+.image {
+  height: 75vh;
+}
+
+.informations {
+  height: 100%;
+  margin-left: 2em;
+}
+
+.h2 {
+  font-weight: 500;
+  font-size: 3em;
+}

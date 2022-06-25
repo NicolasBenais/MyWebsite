@@ -12,28 +12,26 @@ export default function Publish({ isTokenPresent }) {
   const [error, setError] = useState("");
 
   const [picture, setPicture] = useState(null);
+  const [title, setTitle] = useState("");
   const [date, setDate] = useState("");
   const [location, setLocation] = useState("");
-  const [camera, setCamera] = useState("");
-  const [lens, setLens] = useState("");
-  const [film, setFilm] = useState("");
+  const [format, setFormat] = useState("");
 
   const handlePublish = async (event) => {
     event.preventDefault();
 
-    if (picture && date && location && camera && lens && film) {
-      if (Error) {
+    if (picture && title && date && location && format) {
+      if (error) {
         setError(false);
       }
       setPublishment(true);
 
       const formData = new FormData();
       formData.append("picture", picture);
+      formData.append("title", title);
       formData.append("date", date);
       formData.append("location", location);
-      formData.append("camera", camera);
-      formData.append("lens", lens);
-      formData.append("film", film);
+      formData.append("format", format.toLocaleLowerCase());
 
       try {
         const response = await axios.post(
@@ -73,6 +71,14 @@ export default function Publish({ isTokenPresent }) {
 
         <input
           className={styles.input}
+          placeholder="Title"
+          type="text"
+          value={title}
+          onChange={(event) => setTitle(event.target.value)}
+        />
+
+        <input
+          className={styles.input}
           placeholder="Date: May 2022"
           type="text"
           value={date}
@@ -89,26 +95,10 @@ export default function Publish({ isTokenPresent }) {
 
         <input
           className={styles.input}
-          placeholder="Camera: Canon AE-1"
+          placeholder="Format: Landscape or portrait"
           type="text"
-          value={camera}
-          onChange={(event) => setCamera(event.target.value)}
-        />
-
-        <input
-          className={styles.input}
-          placeholder="Lens: Canon FD 50mm f/1.8"
-          type="text"
-          value={lens}
-          onChange={(event) => setLens(event.target.value)}
-        />
-
-        <input
-          className={styles.input}
-          placeholder="Film: Kodak Portra 400"
-          type="text"
-          value={film}
-          onChange={(event) => setFilm(event.target.value)}
+          value={format}
+          onChange={(event) => setFormat(event.target.value)}
         />
 
         {!publishment ? (

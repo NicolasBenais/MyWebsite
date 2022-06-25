@@ -29,10 +29,7 @@
   padding: 0 1em;
 }
 
-.date_and_location,
-.camera_informations,
-.film,
-.tags,
+.input_informations,
 .button {
   width: 100%;
   border: solid 1px lightgrey;
@@ -44,15 +41,9 @@
   line-height: 1.5em;
 }
 
-.date_and_location,
-.camera_informations,
-.tags {
+.input_informations {
   display: flex;
   justify-content: space-between;
-}
-
-.tags {
-  flex-wrap: wrap;
 }
 
 .bottom_container {

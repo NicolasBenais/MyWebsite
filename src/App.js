@@ -5,6 +5,7 @@ import Cookies from "js-cookie";
 
 // Pages
 import Home from "./pages/Home/Home";
+import Picture from "./pages/Picture/Picture";
 import About from "./pages/About/About";
 import Contact from "./pages/Contact/Contact";
 import Backoffice from "./pages/Backoffice/Backoffice";
@@ -25,6 +26,8 @@ function App() {
       <Routes>
         {/* -------- User -------- */}
         <Route path="/" element={<Home />} />
+
+        <Route path="/picture" element={<Picture />} />
 
         <Route path="/about" element={<About />} />
 

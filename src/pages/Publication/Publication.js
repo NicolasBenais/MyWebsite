@@ -23,6 +23,7 @@ export default function Publication({ isTokenPresent }) {
         console.log(error.message);
       }
     };
+
     fetchData();
   }, [id]);
 
@@ -35,20 +36,24 @@ export default function Publication({ isTokenPresent }) {
           <img
             className={styles.img}
             src={data.image.secure_url}
-            alt="Publication"
+            alt={data.title}
           />
+
           <div className={styles.informations}>
-            <div className={styles.date_and_location}>
-              <div>{data.location}</div>
-              <div>{data.date}</div>
+            <div className={styles.input_informations}>
+              <p>{data.title}</p>
             </div>
 
-            <div className={styles.camera_informations}>
-              <div>{data.camera}</div>
-              <div>{data.lens}</div>
+            <div className={styles.input_informations}>
+              <p>{data.location}</p>
+              <p>{data.date}</p>
             </div>
-            <div className={styles.film}>{data.film}</div>
+
+            <div className={styles.input_informations}>
+              <p>Format: {data.format}</p>
+            </div>
           </div>
+
           <div className={styles.bottom_container}>
             <Link to="/backoffice/publish">
               <button className={styles.button} type="button">

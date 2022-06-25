@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 import axios from "axios";
 
 // Styles
@@ -66,20 +67,26 @@ export default function Home() {
               <img
                 className={styles.image}
                 src={item.image.secure_url}
-                alt=""
+                alt={item.title}
               />
 
               {/* Overlay on laptop design */}
-              <div className={styles.picture_informations_laptop_overlay}>
-                <p>{item.location}</p>
-                <p>{item.date}</p>
-              </div>
+              <Link to="/picture" state={item}>
+                <div className={styles.picture_informations_laptop_overlay}>
+                  <p>{item.title}</p>
+                  <p>{item.location}</p>
+                  <p>{item.date}</p>
+                </div>
+              </Link>
 
               {/* Overlay on mobile and tablet design */}
               {activeItem === item._id && (
                 <div className={styles.picture_informations_mobile_overlay}>
-                  <p>{item.location}</p>
-                  <p>{item.date}</p>
+                  <p className={styles.title}>{item.title}</p>
+                  <div>
+                    <p>{item.location}</p>
+                    <p>{item.date}</p>
+                  </div>
                 </div>
               )}
             </div>
