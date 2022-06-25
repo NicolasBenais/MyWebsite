@@ -11,8 +11,10 @@ export default function Home() {
 
   const [activeItem, setActiveItem] = useState(null);
 
+  // Numbers of pictures to download
   let limit = 12;
 
+  // Backend call
   const fetchData = async () => {
     try {
       const response = await axios.get(
@@ -25,6 +27,7 @@ export default function Home() {
     }
   };
 
+  // Executed function when the user scroll to the bottom of the page
   const handleScroll = (event) => {
     if (
       window.innerHeight + event.target.documentElement.scrollTop + 1 >=
@@ -47,7 +50,7 @@ export default function Home() {
   return (
     !isLoading && (
       <main className={styles.main}>
-        {data.map((item, index) => {
+        {data.map((item) => {
           return (
             <div
               onClick={() => {
@@ -72,7 +75,7 @@ export default function Home() {
                 <p>{item.date}</p>
               </div>
 
-              {/* Overlay on mobile design */}
+              {/* Overlay on mobile and tablet design */}
               {activeItem === item._id && (
                 <div className={styles.picture_informations_mobile_overlay}>
                   <p>{item.location}</p>

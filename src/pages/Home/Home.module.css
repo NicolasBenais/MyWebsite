@@ -10,6 +10,10 @@
   width: 100%;
 }
 
+.picture_informations_laptop_overlay {
+  display: none;
+}
+
 .picture_informations_mobile_overlay {
   color: grey;
   display: flex;
