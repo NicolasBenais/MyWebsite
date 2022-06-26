@@ -35,13 +35,14 @@ export default function Publish({ isTokenPresent }) {
 
       try {
         const response = await axios.post(
-          "https://nbns-my-website.herokuapp.com/publish",
+          // "https://nbns-my-website.herokuapp.com/publish",
+          "http://localhost:4000/publish",
           formData
         );
 
         navigate(`/backoffice/publication/${response.data.id}`);
       } catch (error) {
-        console.log(error.message);
+        console.log(error);
         setPublishment(false);
       }
     } else {

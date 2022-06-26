@@ -66,7 +66,7 @@ export default function Home() {
             >
               <img
                 className={styles.image}
-                src={item.image.secure_url}
+                src={item.picture.secure_url}
                 alt={item.title}
               />
 

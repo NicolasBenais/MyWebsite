@@ -35,7 +35,7 @@ export default function Publication({ isTokenPresent }) {
         <div className={styles.container}>
           <img
             className={styles.img}
-            src={data.image.secure_url}
+            src={data.picture.secure_url}
             alt={data.title}
           />
 

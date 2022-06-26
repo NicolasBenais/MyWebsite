@@ -12,7 +12,7 @@ export default function Picture() {
       <div className={styles.container}>
         <img
           className={styles.image}
-          src={state.image.secure_url}
+          src={state.picture.secure_url}
           alt={state.title}
         />
 
