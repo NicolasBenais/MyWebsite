@@ -12,6 +12,8 @@ export default function Publish({ isTokenPresent }) {
   const [error, setError] = useState("");
 
   const [picture, setPicture] = useState(null);
+  const [thumbnail, setThumbnail] = useState(null);
+
   const [title, setTitle] = useState("");
   const [date, setDate] = useState("");
   const [location, setLocation] = useState("");
@@ -28,6 +30,7 @@ export default function Publish({ isTokenPresent }) {
 
       const formData = new FormData();
       formData.append("picture", picture);
+      formData.append("thumbnail", thumbnail);
       formData.append("title", title);
       formData.append("date", date);
       formData.append("location", location);
@@ -57,7 +60,7 @@ export default function Publish({ isTokenPresent }) {
       <form className={styles.form} onSubmit={handlePublish}>
         <h2 className={styles.h2}>Add picture in data</h2>
 
-        <label className={styles.add_picture_button} htmlFor="file_input">
+        <label className={styles.add_picture_button} htmlFor="picture_input">
           <i
             className={picture ? "fa-solid fa-check" : "fa-solid fa-download"}
           ></i>
@@ -65,9 +68,22 @@ export default function Publish({ isTokenPresent }) {
         </label>
         <input
           className={styles.add_picture_input}
-          id="file_input"
+          id="picture_input"
           type="file"
           onChange={(event) => setPicture(event.target.files[0])}
+        />
+
+        <label htmlFor="thumbnail_input" className={styles.add_picture_button}>
+          <i
+            className={thumbnail ? "fa-solid fa-check" : "fa-solid fa-download"}
+          ></i>
+          <span>{thumbnail ? "Thumbnail added" : "Add thumbnail"}</span>
+        </label>
+        <input
+          className={styles.add_picture_input}
+          id="thumbnail_input"
+          type="file"
+          onChange={(event) => setThumbnail(event.target.files[0])}
         />
 
         <input
