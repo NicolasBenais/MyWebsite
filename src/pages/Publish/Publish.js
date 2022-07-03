@@ -17,12 +17,11 @@ export default function Publish({ isTokenPresent }) {
   const [title, setTitle] = useState("");
   const [date, setDate] = useState("");
   const [location, setLocation] = useState("");
-  const [format, setFormat] = useState("");
 
   const handlePublish = async (event) => {
     event.preventDefault();
 
-    if (picture && title && date && location && format) {
+    if (picture && thumbnail && title && date && location) {
       if (error) {
         setError(false);
       }
@@ -34,7 +33,6 @@ export default function Publish({ isTokenPresent }) {
       formData.append("title", title);
       formData.append("date", date);
       formData.append("location", location);
-      formData.append("format", format.toLocaleLowerCase());
 
       try {
         const response = await axios.post(
@@ -108,14 +106,6 @@ export default function Publish({ isTokenPresent }) {
           type="text"
           value={location}
           onChange={(event) => setLocation(event.target.value)}
-        />
-
-        <input
-          className={styles.input}
-          placeholder="Format: Landscape or portrait"
-          type="text"
-          value={format}
-          onChange={(event) => setFormat(event.target.value)}
         />
 
         {!publishment ? (
