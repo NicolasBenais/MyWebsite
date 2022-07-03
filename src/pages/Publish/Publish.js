@@ -36,8 +36,8 @@ export default function Publish({ isTokenPresent }) {
 
       try {
         const response = await axios.post(
-          // "https://nbns-my-website.herokuapp.com/publish",
-          "http://localhost:4000/publish",
+          "https://nbns-my-website.herokuapp.com/publish",
+          // "http://localhost:4000/publish",
           formData
         );
 
