@@ -10,8 +10,6 @@ export default function Home() {
 
   const [data, setData] = useState([]);
 
-  const [activeItem, setActiveItem] = useState(null);
-
   // Numbers of pictures to download
   let limit = 12;
 
@@ -53,17 +51,7 @@ export default function Home() {
       <main className={styles.main}>
         {data.map((item) => {
           return (
-            <div
-              onClick={() => {
-                if (activeItem === item._id) {
-                  setActiveItem(null);
-                } else {
-                  setActiveItem(item._id);
-                }
-              }}
-              key={item._id}
-              className={styles.container}
-            >
+            <div key={item._id} className={styles.container}>
               <img
                 className={styles.image}
                 src={item.thumbnail.secure_url}
@@ -80,15 +68,13 @@ export default function Home() {
               </Link>
 
               {/* Overlay on mobile and tablet design */}
-              {activeItem === item._id && (
-                <div className={styles.picture_informations_mobile_overlay}>
-                  <p className={styles.title}>{item.title}</p>
-                  <div>
-                    <p>{item.location}</p>
-                    <p>{item.date}</p>
-                  </div>
+              <div className={styles.picture_informations_mobile_overlay}>
+                <p className={styles.title}>{item.title}</p>
+                <div>
+                  <p>{item.location}</p>
+                  <p>{item.date}</p>
                 </div>
-              )}
+              </div>
             </div>
           );
         })}
