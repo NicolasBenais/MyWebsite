@@ -48,10 +48,6 @@ export default function Publication({ isTokenPresent }) {
               <p>{data.location}</p>
               <p>{data.date}</p>
             </div>
-
-            <div className={styles.input_informations}>
-              <p>Format: {data.format}</p>
-            </div>
           </div>
 
           <div className={styles.bottom_container}>
