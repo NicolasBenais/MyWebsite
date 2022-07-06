@@ -11,7 +11,10 @@ export default function Home() {
   const [data, setData] = useState([]);
 
   // Numbers of pictures to download
-  let limit = 12;
+  let limit = 6;
+  if (window.innerWidth > 1023) {
+    limit = 9;
+  }
 
   // Backend call
   const fetchData = async () => {
@@ -32,7 +35,11 @@ export default function Home() {
       window.innerHeight + event.target.documentElement.scrollTop + 1 >=
       event.target.documentElement.scrollHeight
     ) {
-      limit += 12;
+      if (window.innerWidth < 1024) {
+        limit += 6;
+      } else {
+        limit += 9;
+      }
       fetchData();
     }
   };
