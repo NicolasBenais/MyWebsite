@@ -18,18 +18,30 @@ export default function Header() {
       </Link>
 
       <nav className={shownMenu ? styles.shownMenu : styles.menu}>
-        <Link to="/" className={styles.link} onClick={handleShownMenu}>
+        <Link
+          to="/"
+          className={styles.link}
+          onClick={() => setShownMenu(false)}
+        >
           Home
         </Link>
-        <Link to="/about" className={styles.link} onClick={handleShownMenu}>
+        <Link
+          to="/about"
+          className={styles.link}
+          onClick={() => setShownMenu(false)}
+        >
           About
         </Link>
-        <Link to="/contact" className={styles.link} onClick={handleShownMenu}>
+        <Link
+          to="/contact"
+          className={styles.link}
+          onClick={() => setShownMenu(false)}
+        >
           Contact
         </Link>
         <nav className={styles.social_mobile}>
           <a
-            onClick={handleShownMenu}
+            onClick={() => setShownMenu(false)}
             href="https://www.instagram.com/ninobns/"
             target="_blank"
             rel="noreferrer"
@@ -37,7 +49,7 @@ export default function Header() {
             <i className="fa-brands fa-instagram fa-xl"></i>
           </a>
           <a
-            onClick={handleShownMenu}
+            onClick={() => setShownMenu(false)}
             href="https://twitter.com/nino_bns"
             target="_blank"
             rel="noreferrer"
@@ -45,7 +57,7 @@ export default function Header() {
             <i className="fa-brands fa-twitter fa-xl"></i>
           </a>
           <a
-            onClick={handleShownMenu}
+            onClick={() => setShownMenu(false)}
             href="https://github.com/NicolasBenais"
             target="_blank"
             rel="noreferrer"
