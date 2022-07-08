@@ -112,12 +112,14 @@
 @media (min-width: 768px) {
   /* Tablet design */
 
-  .button,
+  .opennedButton,
+  .closedButton,
   .social_mobile {
     display: none;
   }
 
   .menu {
+    visibility: visible;
     flex-direction: row;
     height: 2em;
     padding: 0;
@@ -147,6 +149,7 @@
     color: white;
   }
 }
+
 @media (min-width: 1024px) {
   /* Laptop design */
 
@@ -154,39 +157,25 @@
     cursor: pointer;
   }
 
-  .menu {
-    display: flex;
+  .link,
+  .logo {
+    overflow: hidden;
+    background: linear-gradient(to right, #53bf9d, #53bf9d 50%, white 50%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-size: 200% 100%;
+    background-position: 100%;
+    transition: background-position 275ms ease;
   }
 
-  .link {
-    font-size: 1.25em;
-    color: lightgrey;
-    margin: 0 0.5em;
+  .link:hover,
+  .logo:hover {
+    background-position: 0 100%;
   }
 
-  @media (min-width: 1024px) {
-    /* Laptop design */
-
-    .link,
-    .logo {
-      overflow: hidden;
-      background: linear-gradient(to right, #53bf9d, #53bf9d 50%, white 50%);
-      background-clip: text;
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-size: 200% 100%;
-      background-position: 100%;
-      transition: background-position 275ms ease;
-    }
-
-    .link:hover,
-    .logo:hover {
-      background-position: 0 100%;
-    }
-
-    .link:active,
-    .logo:active {
-      transform: scale(0.98);
-    }
+  .link:active,
+  .logo:active {
+    transform: scale(0.98);
   }
 }
