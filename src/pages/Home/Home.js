@@ -11,9 +11,9 @@ export default function Home() {
   const [data, setData] = useState([]);
 
   // Numbers of pictures to download
-  let limit = 6;
+  let limit = 6; //Six pictures for mobile and tablet design
   if (window.innerWidth > 1023) {
-    limit = 9;
+    limit = 9; //Nine pictures for the laptop design
   }
 
   // Backend call
@@ -36,9 +36,9 @@ export default function Home() {
       event.target.documentElement.scrollHeight
     ) {
       if (window.innerWidth < 1024) {
-        limit += 6;
+        limit += 6; //Plus six pictures for mobile and tablet design
       } else {
-        limit += 9;
+        limit += 9; //Plus nine pictures for laptop design
       }
       fetchData();
     }

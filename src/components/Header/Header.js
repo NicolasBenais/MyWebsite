@@ -48,14 +48,14 @@ export default function Header() {
           >
             <i className="fa-brands fa-instagram fa-xl"></i>
           </a>
-          <a
+          {/* <a
             onClick={() => setShownMenu(false)}
             href="https://twitter.com/nino_bns"
             target="_blank"
             rel="noreferrer"
           >
             <i className="fa-brands fa-twitter fa-xl"></i>
-          </a>
+          </a> */}
           <a
             onClick={() => setShownMenu(false)}
             href="https://github.com/NicolasBenais"
@@ -75,9 +75,9 @@ export default function Header() {
         >
           <i className="fa-brands fa-instagram fa-xl"></i>
         </a>
-        <a href="https://twitter.com/nino_bns" target="_blank" rel="noreferrer">
+        {/* <a href="https://twitter.com/nino_bns" target="_blank" rel="noreferrer">
           <i className="fa-brands fa-twitter fa-xl"></i>
-        </a>
+        </a> */}
         <a
           href="https://github.com/NicolasBenais"
           target="_blank"
