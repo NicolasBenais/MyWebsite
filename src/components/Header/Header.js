@@ -1,24 +1,59 @@
 import { Link } from "react-router-dom";
-
-// Components
-// import HamburgerMenu from "../Menus/HamburgerMenu/HamburgerMenu";
-import Menu from "../Menus/Menu/Menu";
+import { useState } from "react";
 
 // Styles
 import styles from "./Header.module.css";
 
 export default function Header() {
+  const [shownMenu, setShownMenu] = useState(false);
+
+  const handleShownMenu = () => {
+    setShownMenu(!shownMenu);
+  };
+
   return (
     <header className={styles.header}>
       <Link to="/">
         <div className={styles.logo}>Nicolas B.</div>
       </Link>
-      <div className={styles.menu}>
-        <Menu />
-      </div>
-      {/* <div className={styles.hamburger_menu}>
-        <HamburgerMenu />
-      </div> */}
+
+      <nav className={shownMenu ? styles.shownMenu : styles.menu}>
+        <Link to="/" className={styles.link} onClick={handleShownMenu}>
+          Home
+        </Link>
+        <Link to="/about" className={styles.link} onClick={handleShownMenu}>
+          About
+        </Link>
+        <Link to="/contact" className={styles.link} onClick={handleShownMenu}>
+          Contact
+        </Link>
+        <nav className={styles.social_mobile}>
+          <a
+            onClick={handleShownMenu}
+            href="https://www.instagram.com/ninobns/"
+            target="_blank"
+            rel="noreferrer"
+          >
+            <i className="fa-brands fa-instagram fa-xl"></i>
+          </a>
+          <a
+            onClick={handleShownMenu}
+            href="https://twitter.com/nino_bns"
+            target="_blank"
+            rel="noreferrer"
+          >
+            <i className="fa-brands fa-twitter fa-xl"></i>
+          </a>
+          <a
+            onClick={handleShownMenu}
+            href="https://github.com/NicolasBenais"
+            target="_blank"
+            rel="noreferrer"
+          >
+            <i className="fa-brands fa-github fa-xl"></i>
+          </a>
+        </nav>
+      </nav>
 
       <nav className={styles.social}>
         <a
@@ -39,6 +74,16 @@ export default function Header() {
           <i className="fa-brands fa-github fa-xl"></i>
         </a>
       </nav>
+      <button
+        className={shownMenu ? styles.opennedButton : styles.closedButton}
+        onClick={handleShownMenu}
+      >
+        <span
+          className={
+            shownMenu ? styles.opennedButton_line : styles.closedButton_line
+          }
+        ></span>
+      </button>
     </header>
   );
 }

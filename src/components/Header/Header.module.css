@@ -13,22 +13,127 @@
   font-weight: 600;
 }
 
-.menu,
 .social {
   display: none;
+}
+
+.menu,
+.shownMenu {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 0;
+  height: 100vh;
+  position: fixed;
+  right: -100vw;
+  bottom: 0;
+  padding: 2em;
+  visibility: hidden;
+  transition: all 0.8s ease-out;
+}
+
+.shownMenu {
+  right: 0;
+  width: 100vw;
+  visibility: visible;
+}
+
+.menu > a,
+.shownMenu > a {
+  padding: 1.5em;
+  font-size: 5vw;
+  color: white;
+}
+
+.social_mobile {
+  display: flex;
+  flex-direction: column;
+}
+
+.social_mobile > a {
+  color: white;
+  padding: 1.5em;
+}
+
+.opennedButton,
+.closedButton {
+  background: transparent;
+  border: none;
+  color: white;
+}
+
+.opennedButton_line,
+.closedButton_line,
+.opennedButton_line::before,
+.closedButton_line::before,
+.opennedButton_line::after,
+.closedButton_line::after {
+  display: block;
+  width: 2.5em;
+  height: 3px;
+  position: relative;
+  border-radius: 3px;
+  background-color: #fff;
+  transition: all 0.5s ease-in-out;
+}
+
+.opennedButton_line::before,
+.closedButton_line::before,
+.opennedButton_line::after,
+.closedButton_line::after {
+  content: "";
+  position: absolute;
+  left: 0;
+}
+
+.opennedButton_line::before,
+.closedButton_line::before {
+  transform: translateY(-12px);
+}
+
+.opennedButton_line::after,
+.closedButton_line::after {
+  transform: translateY(12px);
+}
+
+.opennedButton_line {
+  background: transparent;
+}
+
+.opennedButton_line::before {
+  transform: rotate(45deg);
+}
+
+.opennedButton_line::after {
+  transform: rotate(-45deg);
 }
 
 @media (min-width: 768px) {
   /* Tablet design */
 
-  .hamburger_menu {
+  .button,
+  .social_mobile {
     display: none;
   }
 
   .menu {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    flex-direction: row;
+    height: 2em;
+    padding: 0;
+    position: initial;
+    width: 30em;
+  }
+
+  .menu > a {
+    font-size: 1.25em;
+    margin: 0 0.5em;
+    padding: 0;
+  }
+
+  .link {
+    font-size: 1.25em;
+    color: white;
   }
 
   .social {
@@ -49,22 +154,39 @@
     cursor: pointer;
   }
 
-  .logo {
-    overflow: hidden;
-    background: linear-gradient(to right, #53bf9d, #53bf9d 50%, white 50%);
-    background-clip: text;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-size: 200% 100%;
-    background-position: 100%;
-    transition: background-position 275ms ease;
+  .menu {
+    display: flex;
   }
 
-  .logo:hover {
-    background-position: 0 100%;
+  .link {
+    font-size: 1.25em;
+    color: lightgrey;
+    margin: 0 0.5em;
   }
 
-  .logo:active {
-    transform: scale(0.98);
+  @media (min-width: 1024px) {
+    /* Laptop design */
+
+    .link,
+    .logo {
+      overflow: hidden;
+      background: linear-gradient(to right, #53bf9d, #53bf9d 50%, white 50%);
+      background-clip: text;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-size: 200% 100%;
+      background-position: 100%;
+      transition: background-position 275ms ease;
+    }
+
+    .link:hover,
+    .logo:hover {
+      background-position: 0 100%;
+    }
+
+    .link:active,
+    .logo:active {
+      transform: scale(0.98);
+    }
   }
 }
