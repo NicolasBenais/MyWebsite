@@ -15,6 +15,7 @@ export default function ContactForm() {
   const handleSubmit = async (event) => {
     event.preventDefault();
     setIsSubmite(!isSubmite);
+
     try {
       const response = await axios.post("http://localhost:4000/contact", {
         name,
@@ -22,8 +23,11 @@ export default function ContactForm() {
         subject,
         message,
       });
+
+      console.log("test");
+      setIsSubmite(!isSubmite);
     } catch (error) {
-      console.log(error.message);
+      console.log(error);
     }
   };
 
@@ -59,8 +63,51 @@ export default function ContactForm() {
         rows="10"
       ></textarea>
       <button className={styles.button} type="submite">
-        send !
+        Send !
       </button>
     </form>
   );
 }
+
+// const ContactForm = () => {
+//   const [status, setStatus] = useState("Submit");
+//   const handleSubmit = async (e) => {
+//     e.preventDefault();
+//     setStatus("Sending...");
+//     const { name, email, message } = e.target.elements;
+//     let details = {
+//       name: name.value,
+//       email: email.value,
+//       message: message.value,
+//     };
+//     let response = await fetch("http://localhost:4000/contact", {
+//       method: "POST",
+//       headers: {
+//         "Content-Type": "application/json;charset=utf-8",
+//       },
+//       body: JSON.stringify(details),
+//     });
+//     setStatus("Submit");
+//     let result = await response.json();
+//     alert(result.status);
+//   };
+//   return (
+//     <form onSubmit={handleSubmit}>
+//       <div>
+//         <label htmlFor="name">Name:</label>
+//         <input type="text" id="name" required />
+//       </div>
+//       <div>
+//         <label htmlFor="email">Email:</label>
+//         <input type="email" id="email" required />
+//       </div>
+//       <div>
+//         <label htmlFor="message">Message:</label>
+//         <textarea id="message" required />
+//       </div>
+//       <button type="submit">{status}</button>
+//     </form>
+//   );
+// };
+
+// export default ContactForm;
