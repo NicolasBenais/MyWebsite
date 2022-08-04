@@ -44,7 +44,6 @@
 .shownMenu > a {
   margin: 1.5em;
   font-size: 5vw;
-  /* color: white; */
 }
 
 .social_mobile {
@@ -53,7 +52,6 @@
 }
 
 .social_mobile > a {
-  /* color: white; */
   padding: 1.5em;
 }
 

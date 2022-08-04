@@ -1,14 +1,55 @@
 .main {
   width: 100vw;
-  padding: 4em;
+  padding: 4em 2em;
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
 }
 
-.main > p,
-.main > div {
+.text {
+  margin: 2em 0;
   font-size: 1.5em;
-  margin-bottom: 2em;
+  font-weight: 500;
+  line-height: 1.5em;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.input_container {
+  display: flex;
+  flex-direction: column;
+}
+
+.label {
+  margin-bottom: 0.5em;
+}
+
+.input {
+  border: none;
+  background-color: #fafafa;
+  border: solid 1px #fafafa;
+  padding: 0.5em;
+  outline: none;
+  margin-bottom: 1em;
+}
+
+.input:focus {
+  border: solid 1px black;
+}
+
+.button {
+  color: white;
+  background-color: #070b0e;
+  outline: none;
+  border: none;
+  padding: 0.5em;
+  margin-top: 1.5em;
+}
+
+.button:active {
+  transform: scale(0.98);
 }
