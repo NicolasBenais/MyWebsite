@@ -29,19 +29,19 @@
   padding: 0 1em;
 }
 
-.input_informations,
+.input,
 .button {
   width: 100%;
-  border: solid 1px lightgrey;
+  border: solid 1px #070b0e;
   padding: 0.15em;
   border-top: none;
   border-right: none;
-  border-radius: 0.5em;
+  /* border-radius: 0.5em; */
   margin-bottom: 0.2em;
   line-height: 1.5em;
 }
 
-.input_informations {
+.input {
   display: flex;
   justify-content: space-between;
 }
@@ -52,9 +52,9 @@
 
 .button {
   color: white;
-  margin-top: 0.3em;
-  padding: 0.5em;
-  font-size: 1em;
-  border-top: solid 1px lightgrey;
-  border-right: solid 1px lightgrey;
+  background-color: #070b0e;
+  outline: none;
+  border: none;
+  padding: 0.7em;
+  margin-top: 1.5em;
 }

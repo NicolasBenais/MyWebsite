@@ -36,8 +36,12 @@ export default function Backoffice({ isTokenPresent, setIsTokenPresent }) {
         <Navigate to="/backoffice/publish" />
       ) : (
         <form className={styles.form} onSubmit={handleSubmit}>
+          <label className={styles.label} htmlFor="email">
+            Email:
+          </label>
           <input
-            className={styles.form_input}
+            className={styles.input}
+            id="email"
             type="email"
             placeholder="Email"
             onChange={(event) => {
@@ -45,8 +49,12 @@ export default function Backoffice({ isTokenPresent, setIsTokenPresent }) {
             }}
           />
 
+          <label className={styles.label} htmlFor="password">
+            Password:
+          </label>
           <input
-            className={styles.form_input}
+            className={styles.input}
+            id="password"
             type="password"
             placeholder="Password"
             onChange={(event) => {
@@ -54,7 +62,7 @@ export default function Backoffice({ isTokenPresent, setIsTokenPresent }) {
             }}
           />
 
-          <button className={styles.form_button} type="submit">
+          <button className={styles.button} type="submit">
             Login
           </button>
 

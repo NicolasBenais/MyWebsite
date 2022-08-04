@@ -40,11 +40,11 @@ export default function Publication({ isTokenPresent }) {
           />
 
           <div className={styles.informations}>
-            <div className={styles.input_informations}>
+            <div className={styles.input}>
               <p>{data.title}</p>
             </div>
 
-            <div className={styles.input_informations}>
+            <div className={styles.input}>
               <p>{data.location}</p>
               <p>{data.date}</p>
             </div>

@@ -11,31 +11,47 @@
 .h2 {
   font-size: 2em;
   font-weight: 600;
+  margin-bottom: 1.5em;
 }
 
-.input,
-.tag_button,
-.submite_button,
-.add_picture_button {
+.label {
+  margin-bottom: 0.5em;
+}
+
+.button_label {
   color: white;
   font-size: 1em;
-  margin-top: 1.5em;
+  margin-bottom: 1.5em;
   padding: 0.3em;
-  border-radius: 0.5em;
-  border: solid 1px lightgrey;
-}
-
-.add_picture_button {
+  border: solid 1px #070b0e;
   padding: 0.5em;
   cursor: pointer;
 }
 
-.add_picture_button:active {
-  transform: scale(0.98);
+.input {
+  background-color: #fafafa;
+  border: solid 1px #fafafa;
+  padding: 0.5em;
+  outline: none;
+  margin-bottom: 1em;
 }
 
-.tag_button {
-  margin-left: 0.5em;
+.input:focus {
+  border: solid 1px #070b0e;
+}
+
+.button {
+  color: white;
+  background-color: #070b0e;
+  outline: none;
+  border: none;
+  padding: 0.7em;
+  margin-top: 1.5em;
+}
+
+.button_label:active,
+.button:active {
+  transform: scale(0.98);
 }
 
 .input {
@@ -44,7 +60,7 @@
   border-right: none;
 }
 
-.add_picture_button > span {
+.button_label > span {
   margin-left: 0.5em;
 }
 
@@ -55,15 +71,6 @@
 .form {
   display: flex;
   flex-direction: column;
-}
-
-.tag {
-  margin-top: 0.5em;
-}
-
-.tag > button {
-  color: white;
-  border: none;
 }
 
 .message {

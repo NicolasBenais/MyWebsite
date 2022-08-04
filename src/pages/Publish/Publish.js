@@ -58,7 +58,7 @@ export default function Publish({ isTokenPresent }) {
       <form className={styles.form} onSubmit={handlePublish}>
         <h2 className={styles.h2}>Add picture in data</h2>
 
-        <label className={styles.add_picture_button} htmlFor="picture_input">
+        <label className={styles.button_label} htmlFor="picture_input">
           <i
             className={picture ? "fa-solid fa-check" : "fa-solid fa-download"}
           ></i>
@@ -71,7 +71,7 @@ export default function Publish({ isTokenPresent }) {
           onChange={(event) => setPicture(event.target.files[0])}
         />
 
-        <label htmlFor="thumbnail_input" className={styles.add_picture_button}>
+        <label htmlFor="thumbnail_input" className={styles.button_label}>
           <i
             className={thumbnail ? "fa-solid fa-check" : "fa-solid fa-download"}
           ></i>
@@ -84,36 +84,48 @@ export default function Publish({ isTokenPresent }) {
           onChange={(event) => setThumbnail(event.target.files[0])}
         />
 
+        <label className={styles.label} htmlFor="title">
+          Title:
+        </label>
         <input
           className={styles.input}
+          id="title"
           placeholder="Title"
           type="text"
           value={title}
           onChange={(event) => setTitle(event.target.value)}
         />
 
+        <label className={styles.label} htmlFor="date">
+          Date:
+        </label>
         <input
           className={styles.input}
-          placeholder="Date: May 2022"
+          id="date"
+          placeholder="May 2022"
           type="text"
           value={date}
           onChange={(event) => setDate(event.target.value)}
         />
 
+        <label className={styles.label} htmlFor="location">
+          Location:
+        </label>
         <input
           className={styles.input}
-          placeholder="Location: Brussels, Belgium"
+          id="location"
+          placeholder="Brussels, Belgium"
           type="text"
           value={location}
           onChange={(event) => setLocation(event.target.value)}
         />
 
         {!publishment ? (
-          <button className={styles.submite_button} type="submite">
+          <button className={styles.button} type="submite">
             Save
           </button>
         ) : (
-          <button className={styles.submite_button} disabled={true}>
+          <button className={styles.button} disabled={true}>
             Loading...
           </button>
         )}

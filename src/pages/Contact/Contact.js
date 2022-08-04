@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import { useState } from "react";
 
 // Styles
@@ -5,6 +6,7 @@ import styles from "./Contact.module.css";
 
 export default function Contact() {
   const [status, setStatus] = useState("Submit");
+  const [isSent, setIsSent] = useState(false);
 
   const handleSubmit = async (event) => {
     event.preventDefault();
@@ -30,7 +32,9 @@ export default function Contact() {
 
     setStatus("Submit");
     let result = await response.json();
-    alert(result.status);
+    if (result.status === "Message sent") {
+      setIsSent(true);
+    }
   };
 
   return (
@@ -38,53 +42,66 @@ export default function Contact() {
       <p className={styles.text}>
         Interested in a photo shoot ?<br></br>Contact me 🤓 📷
       </p>
-      <form className={styles.form} onSubmit={handleSubmit}>
-        <div className={styles.container}>
-          <div className={styles.input_container}>
-            <label className={styles.label} htmlFor="name">
-              Name:
+
+      {!isSent ? (
+        <form className={styles.form} onSubmit={handleSubmit}>
+          <div className={styles.container}>
+            <div className={styles.input_container}>
+              <label className={styles.label} htmlFor="name">
+                Name:
+              </label>
+              <input
+                className={styles.input}
+                type="text"
+                id="name"
+                placeholder="Your name"
+                required
+              />
+            </div>
+
+            <div className={styles.input_container}>
+              <label className={styles.label} htmlFor="email">
+                Email:
+              </label>
+              <input
+                className={styles.input}
+                type="email"
+                id="email"
+                placeholder="Your email"
+                required
+              />
+            </div>
+          </div>
+
+          <div className={styles.textarea_container}>
+            <label className={styles.label} htmlFor="message">
+              Message:
             </label>
-            <input
-              className={styles.input}
-              type="text"
-              id="name"
-              placeholder="Your name"
+            <textarea
+              className={styles.textarea}
+              id="message"
+              placeholder="Tell me about your project"
+              cols="30"
+              rows="10"
               required
             />
           </div>
 
-          <div className={styles.input_container}>
-            <label className={styles.label} htmlFor="email">
-              Email:
-            </label>
-            <input
-              className={styles.input}
-              type="email"
-              id="email"
-              placeholder="Your email"
-              required
-            />
-          </div>
+          <button className={styles.button} type="submit">
+            {status}
+          </button>
+        </form>
+      ) : (
+        <div className={styles.message_sent_container}>
+          <p className={styles.message_sent_text}>
+            Your message has been sent !<br></br>I will contact you as soon as
+            possible. Thank you 🤓
+          </p>
+          <Link className={styles.link} to="/">
+            Back to home
+          </Link>
         </div>
-
-        <div className={styles.textarea_container}>
-          <label className={styles.label} htmlFor="message">
-            Message:
-          </label>
-          <textarea
-            className={styles.textarea}
-            id="message"
-            placeholder="Tell me about your project"
-            cols="30"
-            rows="10"
-            required
-          />
-        </div>
-
-        <button className={styles.button} type="submit">
-          {status}
-        </button>
-      </form>
+      )}
     </main>
   );
 }

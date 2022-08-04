@@ -3,7 +3,9 @@
   padding: 4em 2em;
 }
 
-.text {
+.text,
+.message_sent_text,
+.link {
   margin: 2em 0;
   font-size: 1.5em;
   font-weight: 500;
@@ -58,6 +60,11 @@
   transform: scale(0.98);
 }
 
+.link {
+  width: 100%;
+  font-size: 2em;
+}
+
 @media (min-width: 768px) {
   /* Tablet design */
 
@@ -91,6 +98,25 @@
   /* Laptop design */
   .main {
     padding: 0 10em;
+  }
+
+  .link {
+    overflow: hidden;
+    background: linear-gradient(to right, #53bf9d, #53bf9d 50%, #070b0e 50%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-size: 200% 100%;
+    background-position: 100%;
+    transition: background-position 275ms ease;
+  }
+
+  .link:hover {
+    background-position: 0 100%;
+  }
+
+  .link:active {
+    transform: scale(0.98);
   }
 }
 
