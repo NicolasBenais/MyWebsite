@@ -127,7 +127,7 @@
     height: 2em;
     padding: 0;
     position: initial;
-    width: 30em;
+    /* width: 30em; */
   }
 
   .menu > a {
@@ -153,6 +153,10 @@
 
   .social > i {
     cursor: pointer;
+  }
+
+  .menu {
+    width: 30em;
   }
 
   .link,

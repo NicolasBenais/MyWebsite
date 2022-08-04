@@ -36,7 +36,7 @@ export default function Contact() {
   return (
     <main className={styles.main}>
       <p className={styles.text}>
-        Interested for a shooting ?<br></br>Contact me 🤓 📷
+        Interested in a photo shoot ?<br></br>Contact me 🤓 📷
       </p>
       <form className={styles.form} onSubmit={handleSubmit}>
         <div className={styles.container}>
@@ -52,6 +52,7 @@ export default function Contact() {
               required
             />
           </div>
+
           <div className={styles.input_container}>
             <label className={styles.label} htmlFor="email">
               Email:
@@ -66,12 +67,12 @@ export default function Contact() {
           </div>
         </div>
 
-        <div className={styles.input_container}>
+        <div className={styles.textarea_container}>
           <label className={styles.label} htmlFor="message">
             Message:
           </label>
           <textarea
-            className={styles.input}
+            className={styles.textarea}
             id="message"
             placeholder="Tell me about your project"
             cols="30"
