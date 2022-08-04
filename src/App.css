@@ -1,8 +1,8 @@
 * {
   box-sizing: border-box;
-  background-color: #070b0e;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  color: #070b0e;
 }
 
 body,

@@ -5,10 +5,10 @@
   justify-content: space-between;
   width: 100vw;
   z-index: 1;
+  background-color: white;
 }
 
 .logo {
-  color: white;
   font-size: 2em;
   font-weight: 600;
 }
@@ -24,13 +24,14 @@
   align-items: center;
   justify-content: center;
   width: 0;
-  height: 100vh;
   position: fixed;
   right: -100vw;
   bottom: 0;
+  top: 4em;
   padding: 2em;
   visibility: hidden;
   transition: all 0.8s ease-out;
+  background-color: white;
 }
 
 .shownMenu {
@@ -43,7 +44,7 @@
 .shownMenu > a {
   margin: 1.5em;
   font-size: 5vw;
-  color: white;
+  /* color: white; */
 }
 
 .social_mobile {
@@ -52,7 +53,7 @@
 }
 
 .social_mobile > a {
-  color: white;
+  /* color: white; */
   padding: 1.5em;
 }
 
@@ -60,7 +61,7 @@
 .closedButton {
   background: transparent;
   border: none;
-  color: white;
+  color: #070b0e;
 }
 
 .opennedButton_line,
@@ -74,7 +75,7 @@
   height: 3px;
   position: relative;
   border-radius: 3px;
-  background-color: #fff;
+  background-color: #070b0e;
   transition: all 0.5s ease-in-out;
 }
 
@@ -112,6 +113,10 @@
 @media (min-width: 768px) {
   /* Tablet design */
 
+  .header {
+    position: unset;
+  }
+
   .opennedButton,
   .closedButton,
   .social_mobile {
@@ -135,7 +140,6 @@
 
   .link {
     font-size: 1.25em;
-    color: white;
   }
 
   .social {
@@ -143,10 +147,6 @@
     justify-content: space-around;
     align-items: center;
     width: 8.25em;
-  }
-
-  .social > a {
-    color: white;
   }
 }
 
@@ -160,7 +160,7 @@
   .link,
   .logo {
     overflow: hidden;
-    background: linear-gradient(to right, #53bf9d, #53bf9d 50%, white 50%);
+    background: linear-gradient(to right, #53bf9d, #53bf9d 50%, #070b0e 50%);
     background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;

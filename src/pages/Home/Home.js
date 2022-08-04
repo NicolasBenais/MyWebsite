@@ -68,7 +68,6 @@ export default function Home() {
               {/* Overlay on laptop design */}
               <Link to="/picture" state={item}>
                 <div className={styles.picture_informations_laptop_overlay}>
-                  <p>{item.title}</p>
                   <p>{item.location}</p>
                   <p>{item.date}</p>
                 </div>
@@ -76,7 +75,6 @@ export default function Home() {
 
               {/* Overlay on mobile and tablet design */}
               <div className={styles.picture_informations_mobile_overlay}>
-                <p className={styles.title}>{item.title}</p>
                 <div>
                   <p>{item.location}</p>
                   <p>{item.date}</p>

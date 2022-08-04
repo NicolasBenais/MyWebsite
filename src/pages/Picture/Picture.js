@@ -17,9 +17,9 @@ export default function Picture() {
         />
 
         <div className={styles.informations}>
-          <h2 className={styles.h2}>{state.title}</h2>
-          <p>{state.location}</p>
-          <p>{state.date}</p>
+          <h2 className={styles.h2}>{state.location}</h2>
+          {/* <p>{state.location}</p> */}
+          <p className={styles.date}>{state.date}</p>
         </div>
       </div>
     </main>
