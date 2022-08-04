@@ -40,7 +40,8 @@
   outline: none;
 }
 
-.input:focus {
+.input:focus,
+.textarea:focus {
   border: solid 1px black;
 }
 
